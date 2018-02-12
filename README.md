@@ -1,6 +1,8 @@
 # Rails Partial for VSCode
 
-VSCode's missing port of [Rails Partial](https://github.com/wesf90/rails-partial) extension. Works with Slim, Haml and Erb.
+Quickly create a partial from selected code of your view.
+
+Inspired by [Rails Partial](https://github.com/wesf90/rails-partial) extension for Sublime Text.
 
 ![Demo](https://raw.githubusercontent.com/atipugin/vscode-rails-partial/master/images/demo.gif)
 
