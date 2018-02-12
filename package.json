@@ -1,6 +1,7 @@
 {
   "name": "rails-partial",
   "displayName": "Rails Partial",
+  "description": "Quick way to create a Rails partial",
   "version": "0.0.1",
   "publisher": "atipugin",
   "repository": {
