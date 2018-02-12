@@ -2,6 +2,8 @@
 
 VSCode's missing port of [Rails Partial](https://github.com/wesf90/rails-partial) extension. Works with Slim, Haml and Erb.
 
+![Demo](https://raw.githubusercontent.com/atipugin/vscode-rails-partial/master/images/demo.gif)
+
 ## How it works
 
 1. Select some code you want to move to a partial and press `Alt + P` (or call `Rails Partial: Create partial` command)
