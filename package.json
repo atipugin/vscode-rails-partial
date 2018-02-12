@@ -14,7 +14,7 @@
     "vscode": "^1.20.0"
   },
   "main": "./extension",
-  "activationEvents": ["*"],
+  "activationEvents": ["onCommand:rails-partial.createPartial"],
   "contributes": {
     "commands": [
       {
