@@ -1,10 +1,10 @@
 # Rails Partial for VSCode
 
-Quickly create a partial from selected code of your view.
-
-Inspired by [Rails Partial](https://github.com/wesf90/rails-partial) extension for Sublime Text.
+Quickly create partials from selected code right out of your views.
 
 ![Demo](https://raw.githubusercontent.com/atipugin/vscode-rails-partial/master/images/demo.gif)
+
+Inspired by [Rails Partial](https://github.com/wesf90/rails-partial) extension for Sublime Text.
 
 ## How it works
 
