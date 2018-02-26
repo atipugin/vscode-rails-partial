@@ -31,31 +31,35 @@ const activate = context => {
         return;
       }
 
-      vscode.window.showInputBox().then(value => {
-        // Create a dir if needed
-        const targetDir = resolveTargetDir(currentFile, value);
-        if (!fs.existsSync(targetDir)) {
-          mkdirp.sync(targetDir);
-        }
+      vscode.window
+        .showInputBox({ prompt: "Give your partial a name:" })
+        .then(value => {
+          // Create a dir if needed
+          const targetDir = resolveTargetDir(currentFile, value);
+          if (!fs.existsSync(targetDir)) {
+            mkdirp.sync(targetDir);
+          }
 
-        // Create partial with selected content
-        fs.writeFileSync(
-          path.resolve(
-            targetDir,
-            "_" + value + path.basename(currentFile).match(/\..+/)[0]
-          ),
-          vscode.window.activeTextEditor.document.getText(selection)
-        );
+          // Create partial with selected content
+          fs.writeFileSync(
+            path.resolve(
+              targetDir,
+              "_" +
+                path.basename(value) +
+                path.basename(currentFile).match(/\..+/)[0]
+            ),
+            vscode.window.activeTextEditor.document.getText(selection)
+          );
 
-        // Replace current file content with corresponding `render` method
-        const edit = new vscode.WorkspaceEdit();
-        edit.replace(
-          vscode.window.activeTextEditor.document.uri,
-          selection,
-          util.format(extensionHandlers[path.extname(currentFile)], value)
-        );
-        vscode.workspace.applyEdit(edit);
-      });
+          // Replace current file content with corresponding `render` method
+          const edit = new vscode.WorkspaceEdit();
+          edit.replace(
+            vscode.window.activeTextEditor.document.uri,
+            selection,
+            util.format(extensionHandlers[path.extname(currentFile)], value)
+          );
+          vscode.workspace.applyEdit(edit);
+        });
     }
   );
 
@@ -78,7 +82,7 @@ const resolveTargetDir = (currentFile, partialName) => {
   let dir = path.dirname(currentFile);
   const partialDir = path.dirname(partialName);
   if (partialDir !== ".") {
-    dir = dir.match(/^(.+)\/app\/views\//)[0];
+    dir = dir.match(/^(.+\/app\/views)\//)[1];
   }
 
   return path.resolve(dir, partialDir);
